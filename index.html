@@ -18,7 +18,9 @@
     <div class="container">
         <h2>QR Code Scanner</h2>
         <video id="qrScanner" playsinline></video>
-        <button onclick="startScanner()">Start Scanning</button>
+        <button id="startScanBtn" onclick="startScanner()">Start Camera</button>
+        <button id="scanBtn" onclick="scanQRCode()" disabled>Scan</button>
+        <button id="stopScanBtn" onclick="stopScanner()" disabled>Stop Camera</button>
         <p>Scanned Text: <span id="scannedText"></span></p>
     </div>
 

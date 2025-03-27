@@ -2,7 +2,7 @@ let qrCode;
 const qrContainer = document.getElementById("qrContainer");
 const downloadBtn = document.getElementById("downloadBtn");
 
-//   Generate QR Code
+// Generate QR Code
 function generateQRCode() {
     const text = document.getElementById("textInput").value.trim();
     if (!text) {
@@ -24,33 +24,63 @@ function generateQRCode() {
 
     qrCode.append(qrContainer);
 
-    //  Show Download Button
+    // Show Download Button
     downloadBtn.style.display = "block";
 }
 
-//  Download QR Code
+// Download QR Code
 function downloadQRCode() {
     if (!qrCode) return;
     qrCode.download({ name: "qr-code", extension: "png" });
 }
 
-//  Start QR Code Scanner
-function startScanner() {
-    const video = document.getElementById("qrScanner");
-    const scannedText = document.getElementById("scannedText");
+// QR Code Scanner
+const videoElement = document.getElementById("qrScanner");
+const startScanBtn = document.getElementById("startScanBtn");
+const scanBtn = document.getElementById("scanBtn");
+const stopScanBtn = document.getElementById("stopScanBtn");
+const scannedText = document.getElementById("scannedText");
 
-    QrScanner.hasCamera().then(hasCamera => {
-        if (!hasCamera) {
-            alert("No camera detected!");
-            return;
-        }
+let scanner = null;
+let stream = null;
 
-        const scanner = new QrScanner(video, result => {
-            scannedText.textContent = result;
-            scanner.stop(); 
+// Start Camera
+async function startScanner() {
+    try {
+        stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+        videoElement.srcObject = stream;
+        scanBtn.disabled = false;
+        stopScanBtn.disabled = false;
+
+        // Initialize QR Scanner
+        scanner = new QrScanner(videoElement, result => {
+            scannedText.textContent = `Scanned QR Code: ${result}`;
+            stopScanner();
         });
-
-        scanner.start();
-    });
+    } catch (error) {
+        alert("Camera access denied or unavailable.");
+        console.error(error);
+    }
 }
 
+// Scan QR Code (Manual Scan Button)
+function scanQRCode() {
+    if (!scanner) {
+        alert("Camera is not started!");
+        return;
+    }
+    scanner.start();
+}
+
+// Stop Scanner
+function stopScanner() {
+    if (scanner) {
+        scanner.stop();
+    }
+    if (stream) {
+        stream.getTracks().forEach(track => track.stop());
+    }
+    videoElement.srcObject = null;
+    scanBtn.disabled = true;
+    stopScanBtn.disabled = true;
+}
