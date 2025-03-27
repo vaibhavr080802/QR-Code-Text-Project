@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background: #f4f4f4;
+    background: #f9f9f9;
     margin: 0;
     padding: 20px;
 }
@@ -10,10 +10,9 @@ body {
     background: #fff;
     padding: 20px;
     margin: 20px auto;
-    width: 90%;
     max-width: 400px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -21,7 +20,7 @@ h2 {
 }
 
 input {
-    width: 90%;
+    width: 100%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -30,19 +29,17 @@ input {
 
 .button-container {
     display: flex;
-    justify-content: center;
     gap: 10px;
-    margin-top: 10px;
 }
 
 button {
-    background: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
     flex: 1;
+    padding: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 button:hover {
@@ -50,7 +47,7 @@ button:hover {
 }
 
 #qrContainer {
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 #downloadBtn {
