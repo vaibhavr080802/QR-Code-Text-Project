@@ -48,10 +48,3 @@ button:hover {
 #downloadBtn {
     display: none;
 }
-
-video {
-    width: 100%;
-    max-width: 300px;
-    border: 1px solid #ddd;
-    margin-top: 10px;
-}
