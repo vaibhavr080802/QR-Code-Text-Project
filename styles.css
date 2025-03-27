@@ -1,55 +1,102 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
-    background: #f9f9f9;
+    background: linear-gradient(135deg, #792b31, #b9320d, #963d22, #db7e89);
     margin: 0;
     padding: 20px;
 }
 
+/* Card-Like Container */
 .container {
-    background: #fff;
+    background: linear-gradient(135deg, #fff1eb, #ace0f9);
     padding: 20px;
     margin: 20px auto;
     max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    border: 3px solid #fff;
+    transition: transform 0.3s ease-in-out;
 }
 
+.container:hover {
+    transform: scale(1.02);
+}
+
+/* Heading */
 h2 {
-    color: #333;
+    color: #444;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
 }
 
+/* Input Field */
 input {
-    width: 100%;
-    padding: 10px;
+    width: 90%;
+    padding: 12px;
     margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid #ff758c;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s;
 }
 
+input:focus {
+    border-color: #ff4e50;
+    box-shadow: 0 0 8px rgba(255, 78, 80, 0.5);
+}
+
+/* Button Container */
 .button-container {
     display: flex;
     gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
 }
 
+/* Buttons */
 button {
     flex: 1;
-    padding: 10px;
+    padding: 12px;
     border: none;
-    background: #007bff;
-    color: white;
-    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
 }
 
-button:hover {
-    background: #0056b3;
+/* Generate Button */
+#generateBtn {
+    background: linear-gradient(135deg, #8dab16, #15ab62);
+    color: white;
 }
 
+#generateBtn:hover {
+    background: linear-gradient(135deg, #d04707, #851414);
+    transform: translateY(-3px);
+}
+
+/* Download Button */
+#downloadBtn {
+    background: linear-gradient(135deg, #8dab16, #15ab62);
+    color: white;
+    display: none;
+}
+
+#downloadBtn:hover {
+    background: linear-gradient(135deg, #d04707, #851414);
+    transform: translateY(-3px);
+}
+
+/* QR Code Display */
 #qrContainer {
     margin-top: 20px;
-}
-
-#downloadBtn {
-    display: none;
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
 }
