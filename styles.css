@@ -28,13 +28,21 @@ input {
     border-radius: 5px;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
 button {
     background: #007bff;
     color: #fff;
     border: none;
-    padding: 10px;
+    padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
+    flex: 1;
 }
 
 button:hover {
